@@ -7,7 +7,7 @@ export class Wall extends GameObject {
         this.r = r;
         this.c = c;
         this.gamemap = gamemap;
-        this.color = "#4B0082";
+        this.color = "#a6009d";
     }
 
 
