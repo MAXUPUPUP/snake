@@ -7,17 +7,17 @@
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
             <router-link :class="route_name == 'pk_index' ? 'nav-link active' : 'nav-link'"
-              :to="{ name: 'pk_index' }">对战</router-link>
+              :to="{ name: 'pk_index' }">游戏对战</router-link>
           </li>
           <li class="nav-item">
             <router-link :class="route_name == 'record_index' ? 'nav-link active' : 'nav-link'"
-              :to="{ name: 'record_index' }">对局列表</router-link>
+              :to="{ name: 'record_index' }">战绩查询</router-link>
             <!-- 这是在完全前后端分离，不用再加载 -->
             <!-- active的位置，决定高亮在哪 -->
           </li>
           <li class="nav-item">
             <router-link :class="route_name == 'ranklist_index' ? 'nav-link active' : 'nav-link'"
-              :to="{ name: 'ranklist_index' }">排行榜</router-link>
+              :to="{ name: 'ranklist_index' }">排位天梯</router-link>
           </li>
         </ul>
         <ul class="navbar-nav" v-if="$store.state.user.is_login">
@@ -81,4 +81,8 @@ export default {
 
 </script>
 
-<style scoped></style>
+<style scoped>
+
+
+
+</style>

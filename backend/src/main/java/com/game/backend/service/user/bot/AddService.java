@@ -1,2 +1,7 @@
-package com.game.backend.service.user.bot;public interface AddService {
+package com.game.backend.service.user.bot;
+
+import java.util.Map;
+
+public interface AddService {
+    Map<String, String> add(Map<String, String> data);
 }
