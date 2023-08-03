@@ -38,16 +38,20 @@ export class GameMap extends GameObject {
     add_listening_events(){
         this.ctx.canvas.focus();
 
-        const [snake0, sanke1] = this.snakes;
         this.ctx.canvas.addEventListener("keydown", e => {
-            if(e.key === 'w') snake0.set_direction(0);
-            else if(e.key === 'd') snake0.set_direction(1);
-            else if(e.key === 's') snake0.set_direction(2);
-            else if(e.key === 'a') snake0.set_direction(3);
-            else if(e.key === 'ArrowUp') sanke1.set_direction(0);
-            else if(e.key === 'ArrowRight') sanke1.set_direction(1);
-            else if(e.key === 'ArrowDown') sanke1.set_direction(2);
-            else if(e.key === 'ArrowLeft') sanke1.set_direction(3); 
+            let d = -1;
+            if(e.key === 'w') d = 0;
+            else if(e.key === 'd') d = 1;
+            else if(e.key === 's') d = 2;
+            else if(e.key === 'a') d = 3;
+
+            if(d >= 0) {//笑.jpg(掉了个等于号调了一个小时)
+                this.store.state.pk.socket.send(JSON.stringify({
+                    event: "move",
+                    direction: d,
+                }));
+
+            }
         });          
 
     }
@@ -117,9 +121,7 @@ export class GameMap extends GameObject {
             this.ctx.fillRect(c * this.L, r * this.L, this.L, this.L);
         }
        }
-
-
-
+       
     }
 
 }
