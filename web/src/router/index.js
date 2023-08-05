@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import PkindexView from '../views/pk/PkindexView'
 import RanklistindexView from '../views/ranklist/RanklistindexView'
 import RecordindexView from '../views/record/RecordindexView'
+import RecordContentView from '../views/record/RecordContentView'
 import UserBotindexView from '../views/user/bot/UserBotindexView'
 import NotFound from '../views/error/NotFound'
 import UserAccountLoginView from '../views/user/account/UserAccountLoginView'
@@ -26,6 +27,16 @@ const routes = [
       requestAuth: true,
     }
   },
+
+  {
+    path: "/record/:recordId/",
+    name: "record_content",
+    component: RecordContentView,
+    meta: {
+      requestAuth: true,
+    }
+  },
+
 
   {
     path: "/ranklist/",

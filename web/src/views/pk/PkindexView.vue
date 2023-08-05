@@ -21,6 +21,7 @@ export default{
     setup() {
         const store = useStore();
         const socketUrl = `ws://localhost:3000/websocket/${store.state.user.token}/`;
+        store.commit("updateIsRecord", false);
 
         let socket = null;
         onMounted(() => {
@@ -77,6 +78,7 @@ export default{
         });
 
         onUnmounted(() => {
+            store.commit("updateLoser", "none");//
             socket.close();
             store.commit("updateStatus", "matching");
         })
