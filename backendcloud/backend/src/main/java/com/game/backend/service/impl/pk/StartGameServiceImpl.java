@@ -1,7 +1,7 @@
 package com.game.backend.service.impl.pk;
 
 
-import com.game.backend.consumer.WebSocketServer;
+import com.game.backend.service.pk.consumer.WebSocketServer;
 import com.game.backend.service.pk.StartGameService;
 import org.springframework.stereotype.Service;
 

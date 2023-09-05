@@ -1,7 +1,7 @@
 package com.game.backend.service.impl.pk;
 
-import com.game.backend.consumer.WebSocketServer;
-import com.game.backend.consumer.utils.Game;
+import com.game.backend.service.pk.consumer.WebSocketServer;
+import com.game.backend.service.pk.consumer.utils.Game;
 import com.game.backend.service.pk.ReceiveBotMoveService;
 import org.springframework.stereotype.Service;
 

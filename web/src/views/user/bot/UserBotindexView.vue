@@ -208,7 +208,7 @@ export default {
 
         const remove_bot = (bot) => {
             $.ajax({
-                url: "http:/localhost:3000/user/bot/remove/",
+                url: "http://localhost:3000/user/bot/remove/",
                 type: "post",
                 data: {
                     bot_id: bot.id,
