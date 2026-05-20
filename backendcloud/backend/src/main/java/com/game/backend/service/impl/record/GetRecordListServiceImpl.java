@@ -27,6 +27,7 @@ public class GetRecordListServiceImpl implements GetRecordListService {
     @Override
     public JSONObject getList(Integer page) {
         IPage<Record> recordIPage = new Page<>(page, 10);
+
         QueryWrapper<Record> queryWrapper = new QueryWrapper<>();
         queryWrapper.orderByDesc("id");
         List<Record> records = recordMapper.selectPage(recordIPage, queryWrapper).getRecords();
