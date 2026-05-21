@@ -12,9 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Service
 public class GetRanklistServiceImpl implements GetRanklistService {
@@ -60,11 +58,21 @@ public class GetRanklistServiceImpl implements GetRanklistService {
 
         List<User> users = userMapper.selectBatchIds(sortedUserIdList);
         JSONObject resp = new JSONObject();
+
+        Map<Integer, User> userMap = new HashMap<>();
         for(User user : users){
-
-
+            userMap.put(user.getId(), user);
+        }
+        List<User> sortedUsers = new ArrayList<>();
+        for(Integer id : sortedUserIdList){
+            sortedUsers.add(userMap.get(id));
         }
 
+        for(User user : sortedUsers){
+            user.setPassword("");
+        }
+        resp.put("users", sortedUsers);
+        resp.put("users_count", redisTemplate.opsForZSet().zCard(RankListInitializer.RANK_KEY));
         return resp;
     }
 
